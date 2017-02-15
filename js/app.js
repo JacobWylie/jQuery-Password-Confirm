@@ -2,8 +2,13 @@
 // solution: hide and show at appropriate times
 var $password = $("#password");
 var $confirmPassword = $("#confirm_password");
+var $username = $("#username");
 // hide hints
 $("form span").hide();
+
+function isUsernamePresent() {
+	return $username.val().length > 0;
+}
 
 function isPasswordValid() {
 	return $password.val().length > 8;
@@ -14,7 +19,7 @@ function arePasswordsMatching() {
 }
 
 function canSubmit() {
-	return isPasswordValid() && arePasswordsMatching();
+	return isPasswordValid() && arePasswordsMatching() && isUsernamePresent();
 }
 
 function passwordEvent(){
